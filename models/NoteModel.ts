@@ -12,7 +12,7 @@ const NoteModel = model(
 	new Schema(
 		{
 			noteTitle: { type: String, required: true },
-			nodeDescription: String,
+			noteDescription: String,
 			priority: { type: String, enum: ['HIGH', 'MEDIUM', 'LOW'] },
 		},
 		{ timestamps: true },
