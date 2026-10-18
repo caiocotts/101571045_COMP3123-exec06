@@ -1,0 +1,34 @@
+{
+	"name": "week06-mongodb-notes-app",
+	"version": "1.0.0",
+	"description": "Week06 Exercise as note taking application",
+	"main": "server.ts",
+	"scripts": {
+		"dev": "tsx --watch server.ts",
+		"test": "echo \"Error: no test specified\""
+	},
+	"type": "module",
+	"keywords": [
+		"expressJS",
+		"nodeJS",
+		"week06",
+		"API",
+		"mongoDB",
+		"REST",
+		"mongoose",
+		"notes"
+	],
+	"author": "Caio Cotts",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^5.1.0",
+		"mongoose": "^8.19.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.15",
+		"@types/express": "^5.0.6",
+		"@types/node": "^26.6.5",
+		"tsx": "^4.23.15",
+		"typescript": "^7.0.2"
+	}
+}

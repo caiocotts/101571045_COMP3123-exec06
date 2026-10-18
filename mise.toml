@@ -1,0 +1,3 @@
+[env]
+DB_URL = { required = true }
+PORT = { required = true }
