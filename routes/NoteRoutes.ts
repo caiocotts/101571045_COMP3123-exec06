@@ -35,7 +35,13 @@ noteRoutes.get('/notes', async (_, res) => {
 //http://mongoosejs.com/docs/api.html#findbyid_findById
 noteRoutes.get('/notes/:noteId', async (req, res) => {
 	await NoteModel.findById(req.params.noteId)
-		.then((note) => res.status(200).json(note))
+		.then((note) =>
+			note
+				? res.status(200).json(note)
+				: res.status(404).json({
+						message: `No note found with id: '${req.params.noteId}'`,
+					}),
+		)
 		.catch((err) => {
 			console.log(err)
 			res.status(500).json({
@@ -54,7 +60,13 @@ noteRoutes.put('/notes/:noteId', async (req, res) => {
 		})
 	}
 	await NoteModel.findByIdAndUpdate(req.params.noteId, req.body)
-		.then(() => res.sendStatus(204))
+		.then((note) =>
+			note
+				? res.sendStatus(204)
+				: res.status(404).json({
+						message: `No note found with id: '${req.params.noteId}'`,
+					}),
+		)
 		.catch((err) => {
 			console.log(err)
 			res.status(500).json({
@@ -67,7 +79,13 @@ noteRoutes.put('/notes/:noteId', async (req, res) => {
 //http://mongoosejs.com/docs/api.html#findbyidandremove_findByIdAndRemove
 noteRoutes.delete('/notes/:noteId', async (req, res) => {
 	await NoteModel.findByIdAndDelete(req.params.noteId)
-		.then(() => res.sendStatus(204))
+		.then((note) =>
+			note
+				? res.sendStatus(204)
+				: res.status(404).json({
+						message: `No note found with id: '${req.params.noteId}'`,
+					}),
+		)
 		.catch((err) => {
 			console.log(err)
 			res.status(500).json({
